@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader');
 const { merge } = require('webpack-merge');
 
 const commonConfig = { 
@@ -10,6 +11,7 @@ const commonConfig = {
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
+    new VueLoaderPlugin()
   ],
   output: {
     filename: '[name].[contenthash].main.js',
@@ -20,8 +22,12 @@ const commonConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.scss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

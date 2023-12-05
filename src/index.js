@@ -1,15 +1,24 @@
-import './style.css';
-import { printMe } from './print.js';
+import { createApp } from 'vue';
+import { createStore } from 'vuex';
+import App from './App.vue';
 
-function component() {
-    const element = document.createElement('div');
- 
-   // Lodash, now imported by this script
-    element.innerHTML = ['Hello', 'мир'].join(' ');
+const div = document.createElement('div');
+div.id = 'root';
+document.body.appendChild(div);
 
-    printMe();
- 
-    return element;
+const store = createStore({
+  state () {
+    return {
+      count: 0
+    }
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
   }
- 
-  document.body.appendChild(component());
+})
+
+const app = createApp(App);
+app.use(store);
+app.mount('#root');
