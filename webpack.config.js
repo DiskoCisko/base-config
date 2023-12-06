@@ -19,6 +19,10 @@ const commonConfig = {
     clean: true,
     publicPath: '/',
   },
+  alias: {
+    models: path.resolve(__dirname, 'src/models/'),
+    Templates: path.resolve(__dirname, 'src/templates/'),
+  },
   module: {
     rules: [
       {

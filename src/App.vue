@@ -3,6 +3,6 @@
 </script>
 <template>
 <h1>
-    it`s vue
+    it`s vue 
 </h1>
 </template>
