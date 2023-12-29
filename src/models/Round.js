@@ -1,4 +1,4 @@
-import Theme from '@models/Theme.js';
+import { Theme } from '@models/Theme.js';
 
 export const Round = class Round {
     constructor(data = {}) {
@@ -7,5 +7,6 @@ export const Round = class Round {
         this.isLast = data.isLast;
         this.isComplete = data.isComplete;
         this.isBlocked = data.isBlocked;
+        this.key = data.key;
     }
 }

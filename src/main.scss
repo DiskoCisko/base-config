@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap');
+@import "vue3-colorpicker/style.css";
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    overflow-x: hidden;
+
+    @media(min-width: 1500px) {
+        font-size: 32px;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding-left: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}

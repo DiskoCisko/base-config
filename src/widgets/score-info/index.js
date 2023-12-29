@@ -1,0 +1,1 @@
+export {default as TeamsListWithGrade} from '@widgets/score-info/TeamsListWithGrade.vue';

@@ -14,14 +14,19 @@ const commonConfig = {
     new VueLoaderPlugin()
   ],
   output: {
-    filename: '[name].[contenthash].main.js',
+    filename: '[name].main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
   },
-  alias: {
-    models: path.resolve(__dirname, 'src/models/'),
-    Templates: path.resolve(__dirname, 'src/templates/'),
+  resolve: {
+    alias: {
+      '@models': path.resolve(__dirname, 'src/models/'),
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@': path.resolve(__dirname, 'src/'),
+      '@shared': path.resolve(__dirname, 'src/shared/'),
+      '@widgets': path.resolve(__dirname, 'src/widgets/'),
+    },
   },
   module: {
     rules: [
@@ -34,12 +39,16 @@ const commonConfig = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
         type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader'
       },
       {
         test: /\.js$/,
